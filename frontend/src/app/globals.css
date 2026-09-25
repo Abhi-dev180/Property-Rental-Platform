@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------
+   RentEase design tokens - white / royal blue / gold
+   Defining these inside @theme registers them as real Tailwind color
+   utilities (bg-ink, text-gold/70, border-primary, etc.) with full
+   opacity-modifier support, not just raw CSS variables.
+--------------------------------------------------------------------- */
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Neutral surfaces */
+  --color-canvas: #f5f7fc; /* page background */
+  --color-surface: #ffffff; /* card background */
+  --color-ink: #0b1220; /* near-black navy - headers, primary text, dark buttons */
+  --color-ink-soft: #16213a; /* lighter navy for gradients */
+  --color-muted: #5b6472; /* secondary text */
+  --color-muted-2: #3f4757; /* body copy on light backgrounds */
+
+  /* Brand */
+  --color-primary: #2455eb; /* royal blue - links, icons, active states */
+  --color-primary-dark: #12358f;
+  --color-primary-soft: #eaf0ff;
+  --color-gold: #c9972b; /* rich gold - accents, focus, highlights */
+  --color-gold-soft: #f6e9c9;
+
+  /* Status */
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Soft grid used behind hero sections as a "blueprint" motif */
+.bp-grid {
+  background-image:
+    linear-gradient(to right, rgba(11, 18, 32, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 18, 32, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.gold-text {
+  background: linear-gradient(120deg, #a67c1f, #e7c878 45%, #c9972b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
